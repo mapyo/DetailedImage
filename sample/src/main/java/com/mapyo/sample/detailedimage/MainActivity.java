@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mapyo.detailedimage.DetailedImageActivity;
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
+
+    static final int imageResId = R.drawable.nyannyan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView mainImage = (ImageView) findViewById(R.id.main_image);
-
-        final String imageUrl = "https://raw.githubusercontent.com/mapyo/sample/master/image/nyannyan.png";
-        Picasso.with(this).load(imageUrl).into(mainImage);
+        mainImage.setImageResource(imageResId);
 
         mainImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailedImageActivity.launchActivity(MainActivity.this, imageUrl);
+                DetailedImageActivity.launchActivity(MainActivity.this, imageResId);
             }
         });
     }
